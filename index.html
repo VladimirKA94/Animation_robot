@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="jquery-3.3.1.min.js"></script>
+<title>Робот</title>
+</head>
+
+  <body>
+
+  <div class="robot">
+    <div class="beep"></div>
+    <div class="brain"></div>
+    <div class="torso">
+      <div class="left">j</div>
+      <div class="right">j</div>
+    </div>
+    <div class="foot1"></div>
+    <div class="foot2"></div>
+  </div>
+  <div id="Note">Р</div>
+
+  <button class="flash">Лазер (вкл/выкл)</button>
+  <button class="color">Цвет фона</button>
+  
+  <script>
+  // Когда кнопка глаза нажата, переключите лазерный класс на мозг
+  $(".flash").click(function() {
+    $(".brain").toggleClass('laser');
+  });
+
+  // Когда нажата цветная кнопка ...
+  $(".color").click(function() {
+    // назначаем каждому названному цвету случайное число 0-255
+    var red = Math.floor(Math.random() * 255);
+    var green = Math.floor(Math.random() * 255);
+    var blue = Math.floor(Math.random() * 255);
+    
+    // Создание значения RGBA из красного, зеленого и синего
+    var randomRGBA = 'rgba(' + red + ',' + green + ',' + blue + ',1)'
+    
+    // и изменить фон тела на наш случайный цвет
+    $('body').css('background', randomRGBA);
+    //Отобразить значение RGBA в окне предупреждения
+    //alert(randomRGBA);
+  });
+  </script>
+
+  </body>
